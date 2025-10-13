@@ -5,6 +5,8 @@ import PeakOrderingTimes from "@/components/PeakOrderingTimes";
 import PainPoints from "@/components/PainPoints";
 import CampusEvents from "@/components/CampusEvents";
 import RestaurantCoverage from "@/components/RestaurantCoverage";
+import GrowthOpportunities from "@/components/GrowthOpportunities";
+import CampusCompanion from "@/components/CampusCompanion";
 import Methodology from "@/components/Methodology";
 import Footer from "@/components/Footer";
 
@@ -18,6 +20,8 @@ const Index = () => {
       <PainPoints />
       <CampusEvents />
       <RestaurantCoverage />
+      <GrowthOpportunities />
+      <CampusCompanion />
       <Methodology />
       <Footer />
     </div>
