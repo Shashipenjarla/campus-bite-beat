@@ -7,6 +7,8 @@ import CampusEvents from "@/components/CampusEvents";
 import RestaurantCoverage from "@/components/RestaurantCoverage";
 import GrowthOpportunities from "@/components/GrowthOpportunities";
 import CampusCompanion from "@/components/CampusCompanion";
+import ImpactEstimation from "@/components/ImpactEstimation";
+import ExecutionPlan from "@/components/ExecutionPlan";
 import Methodology from "@/components/Methodology";
 import Footer from "@/components/Footer";
 
@@ -22,6 +24,8 @@ const Index = () => {
       <RestaurantCoverage />
       <GrowthOpportunities />
       <CampusCompanion />
+      <ImpactEstimation />
+      <ExecutionPlan />
       <Methodology />
       <Footer />
     </div>
