@@ -9,6 +9,7 @@ import GrowthOpportunities from "@/components/GrowthOpportunities";
 import CampusCompanion from "@/components/CampusCompanion";
 import ImpactEstimation from "@/components/ImpactEstimation";
 import ExecutionPlan from "@/components/ExecutionPlan";
+import CostROIAnalysis from "@/components/CostROIAnalysis";
 import Methodology from "@/components/Methodology";
 import Footer from "@/components/Footer";
 
@@ -26,6 +27,7 @@ const Index = () => {
       <CampusCompanion />
       <ImpactEstimation />
       <ExecutionPlan />
+      <CostROIAnalysis />
       <Methodology />
       <Footer />
     </div>
