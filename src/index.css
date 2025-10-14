@@ -8,48 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 240 10% 10%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 10%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 10%;
-
-    --primary: 24 95% 53%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 262 52% 47%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 40 20% 95%;
-    --muted-foreground: 240 5% 45%;
-
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 24 95% 53%;
-
-    --radius: 0.75rem;
-
-    --chart-1: 24 95% 53%;
-    --chart-2: 262 52% 47%;
-    --chart-3: 142 76% 36%;
-    --chart-4: 45 93% 58%;
-    --chart-5: 340 82% 52%;
-
-    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(340 82% 52%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(40 25% 97%) 100%);
+    /* Swiggy Brand Colors */
+    --swiggy-orange: 24 100% 55%; /* #fc8019 */
+    --swiggy-orange-dark: 24 100% 45%;
+    --swiggy-orange-light: 24 100% 65%;
     
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    /* Primary = Swiggy Orange */
+    --primary: var(--swiggy-orange);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 142 76% 36%; /* Green for success states */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: var(--swiggy-orange);
+    --radius: 0.75rem;
+    
+    /* Chart colors - Orange themed */
+    --chart-1: var(--swiggy-orange);
+    --chart-2: 142 76% 36%; /* Green */
+    --chart-3: 262 83% 58%; /* Purple */
+    --chart-4: 199 89% 48%; /* Blue */
+    --chart-5: 346 84% 61%; /* Pink */
+    
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--swiggy-orange)), hsl(var(--swiggy-orange-light)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--swiggy-orange)) 0%, hsl(var(--swiggy-orange-dark)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(40 25% 97%) 100%);
+    --shadow-glow: 0 10px 40px -10px hsl(var(--swiggy-orange) / 0.4);
     --shadow-sm: 0 2px 8px hsl(240 10% 10% / 0.05);
     --shadow-md: 0 4px 16px hsl(240 10% 10% / 0.08);
-    --shadow-lg: 0 8px 32px hsl(24 95% 53% / 0.15);
+    --shadow-lg: 0 8px 32px hsl(var(--swiggy-orange) / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -62,46 +64,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 240 10% 8%;
-    --foreground: 40 20% 98%;
-
-    --card: 240 10% 12%;
-    --card-foreground: 40 20% 98%;
-
-    --popover: 240 10% 12%;
-    --popover-foreground: 40 20% 98%;
-
-    --primary: 24 95% 53%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary = Swiggy Orange (same in dark mode) */
+    --primary: var(--swiggy-orange);
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 262 52% 47%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 240 8% 18%;
-    --muted-foreground: 240 5% 65%;
-
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
     --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 240 8% 20%;
-    --input: 240 8% 20%;
-    --ring: 24 95% 53%;
-
-    --chart-1: 24 95% 53%;
-    --chart-2: 262 52% 47%;
-    --chart-3: 142 76% 36%;
-    --chart-4: 45 93% 58%;
-    --chart-5: 340 82% 52%;
-
-    --gradient-hero: linear-gradient(135deg, hsl(24 95% 53%) 0%, hsl(340 82% 52%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(240 10% 12%) 0%, hsl(240 8% 15%) 100%);
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: var(--swiggy-orange);
     
+    /* Chart colors - same as light mode */
+    --chart-1: var(--swiggy-orange);
+    --chart-2: 142 76% 36%;
+    --chart-3: 262 83% 58%;
+    --chart-4: 199 89% 48%;
+    --chart-5: 346 84% 61%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(var(--swiggy-orange)) 0%, hsl(var(--swiggy-orange-dark)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(240 10% 12%) 0%, hsl(240 8% 15%) 100%);
+    --shadow-glow: 0 10px 40px -10px hsl(var(--swiggy-orange) / 0.4);
     --shadow-sm: 0 2px 8px hsl(0 0% 0% / 0.3);
     --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.4);
-    --shadow-lg: 0 8px 32px hsl(24 95% 53% / 0.3);
+    --shadow-lg: 0 8px 32px hsl(var(--swiggy-orange) / 0.3);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -135,6 +133,18 @@ All colors MUST be HSL.
   
   .gradient-card {
     background: var(--gradient-card);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
   }
 
   .animate-fade-in {
