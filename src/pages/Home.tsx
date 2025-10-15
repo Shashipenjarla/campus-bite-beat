@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Users, MapPin, Trophy, Wallet, BarChart3, Clock, Zap, Heart } from "lucide-react";
+import { ArrowRight, TrendingUp, Users, MapPin, Trophy, Wallet, BarChart3, Clock, Zap, Heart, Utensils, PartyPopper, Sparkles } from "lucide-react";
+import heroImage from "@/assets/hero-students.jpg";
 
 const quickStats = [
   { label: "Active Students", value: "2,400+", icon: Users, color: "text-chart-1" },
@@ -65,29 +66,41 @@ const liveOffers = [
 const Home = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-primary py-20 px-6">
-        <div className="max-w-6xl mx-auto animate-fade-in">
-          <div className="text-center text-primary-foreground">
-            <Badge variant="secondary" className="mb-4 bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30">
+      {/* Hero Section with Image */}
+      <section className="relative overflow-hidden min-h-[600px] md:min-h-[700px]">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroImage} 
+            alt="Students enjoying food together on campus" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 md:py-32 animate-fade-in">
+          <div className="max-w-2xl">
+            <Badge variant="secondary" className="mb-6 bg-primary text-primary-foreground border-none hover-glow shadow-lg">
+              <Sparkles className="w-3 h-3 mr-1" />
               Powered by Swiggy
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Your Campus Food Companion
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white leading-tight">
+              Swiggy Campus Companion
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-              Discover the ultimate food ecosystem designed exclusively for college students — from midnight snacks to group dinners
+            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+              Reimagining how students eat, hang out, and connect on campus
             </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4">
               <Link to="/analysis">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  <BarChart3 className="w-5 h-5" />
-                  View Campus Analysis
+                <Button size="lg" className="gap-2 hover-glow shadow-xl">
+                  <BarChart3 className="w-5 h-5 icon-bounce" />
+                  Explore Growth Ideas
                 </Button>
               </Link>
               <Link to="/group-orders">
-                <Button size="lg" variant="outline" className="gap-2 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20">
-                  <Users className="w-5 h-5" />
+                <Button size="lg" variant="outline" className="gap-2 bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm hover-lift">
+                  <Users className="w-5 h-5 icon-bounce" />
                   Start Group Order
                 </Button>
               </Link>
@@ -95,9 +108,13 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-primary-foreground/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-primary-foreground/10 rounded-full blur-3xl"></div>
+        {/* Decorative Floating Icons */}
+        <div className="absolute top-20 right-10 z-10 hidden lg:block animate-bounce">
+          <Utensils className="w-12 h-12 text-primary opacity-80" />
+        </div>
+        <div className="absolute bottom-32 right-20 z-10 hidden lg:block animate-pulse">
+          <PartyPopper className="w-10 h-10 text-[hsl(var(--mint))] opacity-70" />
+        </div>
       </section>
 
       {/* Quick Stats */}
@@ -105,8 +122,8 @@ const Home = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {quickStats.map((stat, index) => (
-              <Card key={index} className="p-6 text-center hover-scale animate-scale-in" style={{ animationDelay: `${index * 0.1}s` }}>
-                <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color}`} />
+              <Card key={index} className="p-6 text-center hover-lift animate-scale-in border-t-4 border-t-primary" style={{ animationDelay: `${index * 0.1}s` }}>
+                <stat.icon className={`w-8 h-8 mx-auto mb-3 ${stat.color} icon-bounce`} />
                 <p className="text-3xl font-bold text-foreground mb-1">{stat.value}</p>
                 <p className="text-sm text-muted-foreground">{stat.label}</p>
               </Card>
@@ -118,21 +135,21 @@ const Home = () => {
       {/* Live Offers */}
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-3 mb-8">
-            <Zap className="w-8 h-8 text-primary" />
+          <div className="flex items-center gap-3 mb-8 animate-slide-up">
+            <Zap className="w-8 h-8 text-primary icon-bounce" />
             <h2 className="text-3xl font-bold text-foreground">Live Campus Offers</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {liveOffers.map((offer, index) => (
-              <Card key={index} className="p-6 gradient-card border-l-4 border-l-primary hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
+              <Card key={index} className="p-6 gradient-card border-l-4 border-l-primary hover-lift hover-glow animate-fade-in" style={{ animationDelay: `${index * 0.15}s` }}>
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <offer.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                    <offer.icon className="w-6 h-6 text-primary icon-bounce" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-xl font-bold text-foreground mb-1">{offer.title}</h3>
                     <p className="text-lg text-primary font-semibold mb-2">{offer.subtitle}</p>
-                    <Badge variant="outline">{offer.time}</Badge>
+                    <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-all">{offer.time}</Badge>
                   </div>
                 </div>
               </Card>
@@ -144,7 +161,7 @@ const Home = () => {
       {/* Features Grid */}
       <section className="py-12 px-6 bg-muted/30">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-slide-up">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               Explore Campus Companion
             </h2>
@@ -156,14 +173,14 @@ const Home = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <Link key={index} to={feature.path} className="group">
-                <Card className={`p-6 h-full border-l-4 ${feature.color} hover:shadow-lg transition-all hover:-translate-y-1 animate-scale-in`} style={{ animationDelay: `${index * 0.1}s` }}>
+                <Card className={`p-6 h-full border-l-4 ${feature.color} hover-lift hover-glow transition-all animate-scale-in`} style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="flex items-start gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${feature.color}`}>
-                      <feature.icon className="w-6 h-6" />
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${feature.color} group-hover:scale-110 transition-transform`}>
+                      <feature.icon className="w-6 h-6 icon-bounce" />
                     </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors ml-auto" />
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all ml-auto" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">{feature.title}</h3>
                   <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </Card>
               </Link>
@@ -174,28 +191,34 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Card className="p-10 gradient-hero text-primary-foreground shadow-xl text-center">
-            <Heart className="w-16 h-16 mx-auto mb-6 animate-pulse" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Join the Campus Food Revolution
-            </h2>
-            <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Be part of India's largest student food community. Save money, discover new restaurants, and enjoy exclusive campus perks.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link to="/streak">
-                <Button size="lg" variant="secondary" className="gap-2">
-                  <TrendingUp className="w-5 h-5" />
-                  Check Campus Streak
-                </Button>
-              </Link>
-              <Link to="/rewards">
-                <Button size="lg" variant="outline" className="gap-2 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20">
-                  <Wallet className="w-5 h-5" />
-                  View My Rewards
-                </Button>
-              </Link>
+        <div className="max-w-4xl mx-auto animate-fade-in">
+          <Card className="p-10 gradient-hero text-primary-foreground shadow-2xl text-center hover-glow overflow-hidden relative">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+            
+            <div className="relative z-10">
+              <Heart className="w-16 h-16 mx-auto mb-6 animate-pulse text-white" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Join the Campus Food Revolution
+              </h2>
+              <p className="text-lg text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+                Be part of India's largest student food community. Save money, discover new restaurants, and enjoy exclusive campus perks.
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <Link to="/streak">
+                  <Button size="lg" variant="secondary" className="gap-2 hover-glow shadow-lg">
+                    <TrendingUp className="w-5 h-5 icon-bounce" />
+                    Check Campus Streak
+                  </Button>
+                </Link>
+                <Link to="/rewards">
+                  <Button size="lg" variant="outline" className="gap-2 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20 hover-lift backdrop-blur-sm">
+                    <Wallet className="w-5 h-5 icon-bounce" />
+                    View My Rewards
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Card>
         </div>
